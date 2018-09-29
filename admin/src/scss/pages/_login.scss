@@ -1,0 +1,36 @@
+body {background: #151933;}
+
+div#login {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #1c2340;
+    color: #fac841;
+    box-shadow: 0 0 40px -10px rgba(0,0,0,0.5);
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.field input {
+    width: 100%;
+}
+
+.field label {
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+input#loginSubmit {
+    background: #eec742;
+    border: none;
+    color: #151933;
+    padding: 8px 16px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
