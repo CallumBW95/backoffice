@@ -3,12 +3,12 @@
     "server": "nodemon server.js",
     "mongo": "sudo service mongod start"
   },
-  "name": "back-office-starting-point",
+  "name": "midnight-cms",
   "version": "1.0.0",
   "main": "server.js",
-  "author": "",
+  "author": "Callum Bridgford-Whittick",
   "license": "ISC",
-  "description": "",
+  "description": "CMS build in Node and React",
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt-nodejs": "0.0.3",

@@ -33,17 +33,17 @@ module.exports = app => {
     (email, password, done) => {
       console.log(email, password);
       axios.get(`http://localhost:5000/users?email=${email}`)
-      .then(res => {
-        const user = res.data[0]
-        if (!user) {
-          return done(null, false, { message: 'Invalid credentials.\n' });
-        }
-        if (!bcrypt.compareSync(password, user.password)) {
-          return done(null, false, { message: 'Invalid credentials.\n' });
-        }
-        return done(null, user);
-      })
-      .catch(error => done(error));
+        .then(res => {
+          const user = res.data[0]
+          if (!user) {
+            return done(null, false, { message: 'Invalid credentials.\n' });
+          }
+          if (!bcrypt.compareSync(password, user.password)) {
+            return done(null, false, { message: 'Invalid credentials.\n' });
+          }
+          return done(null, user);
+        })
+        .catch(error => done(error));
     }
   ));
 
@@ -54,35 +54,47 @@ module.exports = app => {
 
   passport.deserializeUser((id, done) => {
     axios.get(`http://localhost:5000/users/${id}`)
-    .then(res => done(null, res.data) )
-    .catch(error => done(error, false))
+      .then(res => done(null, res.data))
+      .catch(error => done(error, false))
   });
 
   // server static files
-  app.use(express.static('../admin/build'));
+  app.get('/build/js/bundle.js', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'admin', 'build', 'js') + '/bundle.js'));
 
   // create the login get and post routes
-  app.get('/backoffice', (req, res) => {
+  app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, "../", "admin", "build", "index.html"));
   });
 
-  app.get('/backoffice/*', (req, res) => {
-    if(req.isAuthenticated()) {
+  app.get(`/${keys.adminUrl}/*`, (req, res) => {
+    if (req.isAuthenticated()) {
       res.sendFile(path.resolve(__dirname, "../", "admin", "build", "index.html"));
     } else {
-      res.redirect('/backoffice')
+      res.redirect(`/${keys.adminUrl}`)
     }
   });
 
-  app.post('/backoffice', (req, res, next) => {
+  app.get(`/${keys.adminUrl}`, (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../", "admin", "build", "index.html"));
+  });
+
+  app.post(`/${keys.adminUrl}`, (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
-      if(info) {return res.send(info.message)}
-      if (err) { return next(err); }
-      if (!user) { return res.redirect('/backoffice'); }
+      switch (true) {
+        case (info):
+          return res.send(info.message);
+        case (err):
+          return next(err);
+        case (!user):
+          return res.redirect('/backoffice');
+      }
+
       req.login(user, (err) => {
-        if (err) { return next(err); }
-        return res.redirect('/backoffice');
-      })
+        if (err)
+          return next(err);
+
+        return res.send('authenticated');
+      });
     })(req, res, next);
   });
 

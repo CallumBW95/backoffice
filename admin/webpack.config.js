@@ -7,12 +7,19 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 })
 
 module.exports = {
+  mode: 'development',
   entry: `${path.resolve(__dirname, 'src')}/index.js`,
   module: {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+        use: [
+          // MiniCssExtractPlugin.loader,
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /\.js$/,
@@ -26,13 +33,13 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'js/bundle.js',
-    path: path.resolve(__dirname, 'build/'),
+    filename: 'build/js/bundle.js',
+    path: path.resolve(__dirname),
   },
   plugins: [
     HTMLWebpackPluginConfig,
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: 'build/css/style.css',
       // chunkFilename: DEV_MODE ? '[id].css' : '[id].[hash].css'
     })
   ]

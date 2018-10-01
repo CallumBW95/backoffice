@@ -1,44 +1,42 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import axios from 'axios';
+import Field from './_partials/_form';
+
+import keys from '../../../config/keys';
 
 class Login extends Component {
   constructor(props) {
     super(props);
+    let state = { errors: [] }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     document.body.addEventListener('click', e => {
-      if (e.target.matches('#loginSubmit')){
-        axios.post('/backoffice',{
-          email:document.getElementById('loginUsername').value,
-          password:document.getElementById('loginPassword').value
-        }).then(({data}) => {
-          if (data == 'authenticated') {
-            this.props.history.push({pathname: 'dashboard'});
+      if (e.target.matches('#loginSubmit')) {
+        axios.post(`/${keys.adminUrl}`, {
+          email: document.getElementById('loginUsername').value,
+          password: document.getElementById('loginPassword').value
+        }).then((res) => {
+          if (res.data && res.data == 'authenticated') {
+            this.props.history.push({ pathname: `/${keys.adminUrl}/dashboard` });
           } else {
-            console.log('no')
+            console.log(res);
           }
-        })
+        });
       }
     })
   }
 
-  render() {
-    return (
-      <div id='login'>
-        <div class='field'>
-          <label for='username'>Username:</label>
-          <input id='loginUsername' name='username' type='text' />
-        </div>
-        <div class='field'>
-          <label for='password'>Password:</label>
-          <input id='loginPassword' name='password' type='text' />
-        </div>
-        <input id='loginSubmit' name='submit' type='button' value='Login' />
-      </div>
-    )
-  }
+render() {
+  return (
+    <div id='login'>
+      {/* <Error messages={this.state.errors} /> */}
+      <Field id='loginUsername' name='username' label='Username:' type='text'/>
+      <Field id='loginPassword' name='password' label='Password:' type='text' />
+      <input id='loginSubmit' name='submit' type='button' value='Login' />
+    </div>
+  )
+}
 }
 
 export default Login;

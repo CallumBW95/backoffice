@@ -1,4 +1,7 @@
-body {background: #151933;}
+body  
+{
+    background: #151933;
+}
 
 div#login {
     width: 300px;
@@ -12,6 +15,7 @@ div#login {
     box-shadow: 0 0 40px -10px rgba(0,0,0,0.5);
     padding: 50px;
     box-sizing: border-box;
+    border-radius: 7px;
 }
 
 .field input {
