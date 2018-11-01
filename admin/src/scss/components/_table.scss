@@ -1,0 +1,76 @@
+table {
+  width: 100%;
+  color: #bbb;
+  border-collapse: collapse;
+  border-radius: 0 0 7px 7px;
+
+  tr {
+    &:hover {
+      background: lighten($theme-primary, 10%);
+    }
+  }
+
+  th {
+    padding: 10px;
+    color: #ccc;
+  }
+
+  td {
+    text-align: center;
+
+    a {
+      padding: 10px;
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+.table {
+  &__header {
+    background: #242c4e;
+  }
+
+  &__status {
+    color: $theme-tertiary;
+  }
+
+  &__edit {
+    color: $theme-tertiary;
+
+    &:hover {
+      color: darken($theme-tertiary, 10%)
+    }
+  }
+
+  .field {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    
+    input {
+      width: unset;
+    }
+  }
+}
+
+.controls {
+  padding: 20px;
+  position: relative;
+
+  &__select {
+    display:inline-block;
+  }
+
+  &__add {
+    display:inline-block;
+    position: absolute;
+    color: $theme-tertiary;
+    top: 20px;
+    right: 20px;
+
+    &:hover {
+      color: darken($theme-tertiary, 10%)
+    }
+  }
+}

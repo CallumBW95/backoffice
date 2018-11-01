@@ -1,12 +1,10 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  local: {
-    email: String,
-    password: String,
-  },
-  username: String
+	email: String,
+	username: String,
+	password: String
 });
 
 mongoose.model("Users", userSchema);

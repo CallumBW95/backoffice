@@ -1,0 +1,47 @@
+.form {
+  padding: #{$spacer / 2};
+  &__title {
+    color: $white;
+    margin-top: 0;
+
+    &:focus {
+      background-color: $theme-secondary;
+      color: $white;
+      border: 0;
+      padding: $spacer /4;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow-inset;
+      width: 100%;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &:after {
+      content:'edit';
+      font-family: $material-icons;
+      color: $theme-tertiary;
+      vertical-align: top;
+      font-size: 1.6rem;
+      margin-left: $spacer / 4;
+    }
+  }
+
+  &__submit {
+    padding: #{$spacer /4} #{$spacer /2};
+    border: 0;
+    background-color: $theme-tertiary;
+    margin-top: 20px;
+    border-radius: 3px;
+    color: $theme-secondary;
+    margin-right: 0;
+    margin-left: auto;
+    display: block;
+
+    &:hover {
+      background-color: darken($theme-tertiary, 10%);
+      cursor: pointer;
+    }
+  }
+}

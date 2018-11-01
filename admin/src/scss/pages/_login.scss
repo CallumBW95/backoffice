@@ -1,11 +1,5 @@
-body  
-{
-    background: #151933;
-}
-
 div#login {
     width: 300px;
-    height: 300px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -18,23 +12,16 @@ div#login {
     border-radius: 7px;
 }
 
-.field input {
-    width: 100%;
-}
-
-.field label {
-    text-align: center;
-    margin: auto;
-    display: block;
-}
-
 input#loginSubmit {
-    background: #eec742;
+    background: $theme-tertiary;
     border: none;
     color: #151933;
-    padding: 8px 16px;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    padding: #{$spacer /4} #{$spacer /2};
+    border-radius: 3px;
+    margin: 20px auto 0;
+    display: block;
+
+    &:hover {
+      background-color: darken($theme-tertiary, 10%);
+    }
 }

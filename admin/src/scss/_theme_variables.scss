@@ -1,0 +1,63 @@
+$theme-primary : #1a2144!default;
+$theme-secondary : #151933!default;
+$theme-tertiary : #ffab00!default;
+$theme-cta: #FBDC5C !default;
+$white: #ffffff !default;
+$body-bg: $theme-secondary !default;
+$dark-gray: #333333 !default;
+$gray: #c8c8c8!default;
+$light-gray: #f7f7f7 !default;
+$transparent: transparent !default;
+
+$notification-warning: #ffcc00 !default;
+$notification-success: #99cc33 !default;
+$notification-danger: #ff9966 !default;
+
+$box-shadow-light: 0 0 7px -2px rgba(0,0,0,0.3) !default;
+$box-shadow-medium: null !default;
+$box-shadow-heavy: 0 0 20px -5px rgba(0,0,0,0.3) !default;
+
+$box-shadow-inset: inset 0 0 15px -7px rgba(0, 0, 0, 0.3) !default;
+
+$border-width: 1px !default;
+$border-color: #eee !default;
+$border-radius: 5px !default;
+$border-pill: 500px;
+
+$font: 'Source Sans Pro', sans-serif !default;
+$font-line-height: 30px !default;
+$font-color: $dark-gray !default;
+$font-size: 1rem !default;
+$font-light: 100 !default;
+$font-reg: 400 !default;
+$font-bold: 600 !default;
+$font-extra-bold: 800 !default;
+$font-weight: $font-reg !default;
+
+$material-icons: 'Material Icons' !default;
+
+$h1-font-size: $font-size * 2 !default;
+$h2-font-size: $font-size * 1.8 !default;
+$h3-font-size: $font-size * 1.6 !default;
+$h4-font-size: $font-size * 1.4 !default;
+$h5-font-size: $font-size * 1.2 !default;
+$h6-font-size: $font-size !default;
+
+$link-color: $font-color !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 10%) !default;
+$link-hover-decoration: none !default;
+
+$spacer: 40px;
+$element-height: 40px;
+
+$z-index1: 5 !default;
+$z-index2: 10 !default;
+$z-index3: 15 !default;
+$z-index4: 20 !default;
+$z-index5: 25 !default;
+
+$assets_dir: '/themes/base-theme-child/assets/';
+$theme_dir: '/themes/base-theme-child/';
+
+$transition: 1s !default;

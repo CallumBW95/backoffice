@@ -10,5 +10,31 @@
       "email": "user2@example.com",
       "password": "$2a$12$VHZ9aJ5A87YeFop4xVW.aOMm95ClU.EviyT9o0i8HYLdG6w6ctMfW"
     }
+  ],
+  "pages": [
+    {
+      "id": "1",
+      "title":"test page 1",
+      "content":"test",
+      "enabled":"true"
+    },
+    {
+      "id": "2",
+      "title":"test page 2",
+      "content":"test",
+      "enabled":"true"
+    },
+    {
+      "id": "3",
+      "title":"test page 3",
+      "content":"test",
+      "enabled":"false"
+    },
+    {
+      "id": "4",
+      "title":"test page 4",
+      "content":"test",
+      "enabled":"true"
+    }
   ]
 }

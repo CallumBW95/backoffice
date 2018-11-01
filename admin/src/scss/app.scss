@@ -1,1 +1,6 @@
-@import './pages/pages';
+@import './theme_variables';
+@import './theme_fonts';
+@import './theme_uniform';
+
+@import './pages/index';
+@import './components/index';
